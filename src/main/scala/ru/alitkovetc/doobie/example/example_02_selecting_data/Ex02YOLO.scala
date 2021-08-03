@@ -5,6 +5,8 @@ import ru.alitkovetc.doobie.example.WorldTransactor
 
 object Ex02YOLO extends App with WorldTransactor {
 
+  // Let's get rid off from thr transact(xa) and foreach(println)
+
   private val yolo = xa.yolo
   import yolo._
 

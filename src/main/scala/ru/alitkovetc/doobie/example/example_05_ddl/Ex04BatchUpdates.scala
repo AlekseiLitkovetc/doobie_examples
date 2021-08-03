@@ -1,7 +1,6 @@
 package ru.alitkovetc.doobie.example.example_05_ddl
 
 import doobie._
-import doobie.implicits._
 import ru.alitkovetc.doobie.example.WorldTransactorWithYOLO
 
 object Ex04BatchUpdates extends App with WorldTransactorWithYOLO {

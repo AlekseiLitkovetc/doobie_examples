@@ -24,6 +24,8 @@ object Ex01ComposingSQLLiterals extends App with WorldTransactorWithYOLO {
   (fr"select name from country" ++ fra).query[String].quick.unsafeRunSync()
 
   // Sub-example 3
+  // Fragment.const performs no escaping of passed strings
+  // Passing user-supplied data is an injection risk.
   def count(table: String) = (fr"select count(*) from" ++ Fragment.const(table)).query[Int].unique
 
   count("city").quick.unsafeRunSync()
@@ -40,6 +42,7 @@ object Ex01ComposingSQLLiterals extends App with WorldTransactorWithYOLO {
   fr"IN (" ++ List(1, 2, 3).map(n => fr"$n").intercalate(fr",") ++ fr")"
   // Fragment("IN ( ? , ? , ? ) ")
 
+  // note about `sql` interpolator
   fr0"IN (" ++ List(1, 2, 3).map(n => fr0"$n").intercalate(fr",") ++ fr")"
   // Fragment("IN (?, ?, ?) ")
 

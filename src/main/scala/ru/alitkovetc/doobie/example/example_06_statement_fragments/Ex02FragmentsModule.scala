@@ -31,7 +31,6 @@ object Ex02FragmentsModule extends App with WorldTransactorWithYOLO {
 
     // Construct a Query0
     q.query[Info]
-
   }
 
   select(None, None, Nil, 10).check.unsafeRunSync() // no filters

@@ -7,7 +7,6 @@ import ru.alitkovetc.doobie.example.WorldTransactor
 object Ex01Limit extends App with WorldTransactor {
 
   // Reading Rows into Collections
-
   private val program1: ConnectionIO[List[String]] = sql"select name from country"
     .query[String]
     .to[List]
@@ -18,7 +17,6 @@ object Ex01Limit extends App with WorldTransactor {
     .foreach(println)
 
   // Internal Streaming
-
   private val program2: ConnectionIO[List[String]] = sql"select name from country"
     .query[String]
     .stream
